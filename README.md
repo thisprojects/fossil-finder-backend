@@ -1,1 +1,0 @@
-# fossil-finder-backend
