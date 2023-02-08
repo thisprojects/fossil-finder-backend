@@ -2,7 +2,25 @@ import mongoose from "mongoose";
 
 const fossilSchema = new mongoose.Schema(
   {
-    species  : {
+      recordType  : {
+      type: String,
+      required: true,
+      min: 6,
+      max: 255,
+    },
+      label_offset  : {
+      type: Number,
+      required: true,
+      min: 6,
+      max: 255,
+    },
+    name  : {
+      type: String,
+      required: true,
+      min: 6,
+      max: 255,
+    },
+      species  : {
       type: String,
       required: true,
       min: 6,
@@ -14,11 +32,9 @@ const fossilSchema = new mongoose.Schema(
       min: 6,
       max: 255,
     },
-    location: {
-      type: String,
+    co_ords: {
+      type: Array,
       required: true,
-      min: 6,
-      max: 255,
     },
     date_found: {
       type: Date,
@@ -28,10 +44,10 @@ const fossilSchema = new mongoose.Schema(
   },
 );
 
-export interface IFossil {
+export interface IFossil<T> {
   species: string;
   fossil_id: string;
-  location: string;
+  location: Array<T>;
   date: Date;
 }
 
